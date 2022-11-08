@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+
+  </head>
+  <body>
+    <div id="app"></div>
+    <div class="container max-w-2xl mx-auto text-purple-700 bg-slate-50 p-6 rounded-md border">
+      Código incorporado no <span class="underline-offset-4 underline">index.html</span> 
+    </div>
+
+    <form action="" class="max-w-2xl p-0 my-0 mx-auto">
+      <div id="box" class="border mt-6 rounded-md p-7 bg-zinc-50 border-dashed border-slate-300">
+        <p id="pp" class="font-medium">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam, et.</p>
+
+        <div class="mt-4">
+          <label for="first-name" class="block text-sm font-medium text-gray-500">First name</label>
+          <input type="text" name="first-name" id="first-name" autocomplete="given-name" class=" border mt-1 block w-full h-10 rounded-[4px] border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm outline-none p-3">
+        </div>
+
+        <ul class="border border-gray-200 rounded overflow-hidden shadow my-6">
+          <li class="ligroup">
+             <span>item</span>
+             <button id="remove" class="font-bold bg-transparent delete text-red-700">x</button>
+          </li>
+        </ul>
+
+        <button class="flex justify-center items-center bg-green-500 p-4 hover:bg-slate-600 transition-all rounded mt-3 w-full font-semibold uppercase text-sm text-white ">
+          <img src="./add-tool.svg" width="17" class="mr-2"/>
+          <span>Adicionar</span>
+        </button>
+
+      </div>
+    </form>
+    <script type="module" src="/main.js"></script>
+
+
+
+    <script>
+    
+      const form = document.querySelector('form');
+      const ul = document.querySelector('ul');
+
+      form.onsubmit = function(event){
+        event.preventDefault();
+
+        const input = form.querySelector('input');
+        const value = input.value;
+
+        if(value == '') return
+
+        const li = ul.querySelector('li').cloneNode(true);
+        li.querySelector('span').textContent = value;
+        ul.appendChild(li);
+
+        input.value = ''
+
+        const button = form.querySelector('#remove');
+        button.onclick = function(event){
+          event.target.parentNode.remove();
+        }
+
+        /*
+
+        const li = document.createElement('li');
+        ul.appendChild(li);
+        li.textContent = value
+        li.setAttribute('class', 'ligroup');
+
+        const button = document.createElement('button');
+        button.textContent = 'x';
+        li.appendChild(button);
+        button.setAttribute('class', 'font-bold bg-transparent delete text-red-700');
+
+        button.addEventListener('click', function(event){
+          ul.removeChild(li);
+        })
+
+        ul.innerHTML = ul.innerHTML + `<li class="ligroup"><span>${value}</span><button class="font-bold bg-transparent delete text-red-700">x</button></li>`;
+        */
+      
+      }
+ 
+
+
+
+    </script>
+  </body>
+</html>
