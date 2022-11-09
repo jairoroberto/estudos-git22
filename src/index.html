@@ -79,13 +79,14 @@
       }
 
       ul.onclick = function(event){
-        console.log(event);
-        /*
-        if(event.target.className == 'font-bold bg-transparent delete text-red-700'){
+        //console.log(event.currentTarget); // UL que chama o evento
+        //console.log(event.target); // depende onde vc clica
+  
+        if(event.target.classList.contains('delete')){
           const li = event.target.parentElement;
-          ul.removeChild(li);
+          event.target.parentElement.remove();
         }
-        */
+
       }
  
 
