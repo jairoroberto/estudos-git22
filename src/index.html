@@ -25,11 +25,11 @@
         <ul class="border border-gray-200 rounded overflow-hidden shadow-sm my-6 hidden">
           <li class="ligroup">
              <span>item</span>
-             <button id="remove" class="font-bold bg-transparent delete text-red-700">&times;</button>
+             <button tabindex="1" id="remove" class="font-bold bg-transparent delete text-red-400">&times;</button>
           </li>
         </ul>
 
-        <button class="flex justify-center items-center bg-green-500 p-4 hover:bg-slate-600 transition-all rounded mt-3 w-full font-semibold uppercase text-sm text-white ">
+        <button tabindex="0" class="flex justify-center items-center bg-green-500 p-4 hover:bg-slate-600 transition-all rounded mt-3 w-full font-semibold uppercase text-sm text-white ">
           <img src="./add-tool.svg" width="17" class="mr-2"/>
           <span>Adicionar</span>
         </button>
@@ -84,6 +84,8 @@
     
       }
 
+
+
       ul.onclick = function(event){
         //console.log(event.currentTarget); // UL que chama o evento
         //console.log(event.target); // depende onde vc clica
@@ -91,7 +93,7 @@
           console.log('li');
           //event.target.style.backgroundColor = '#e0f2fe';
           event.target.classList.toggle('font-bold');
-          event.target.classList.toggle('bg-zinc-100');
+          event.target.classList.toggle('bg-sky-100');
         }
   
         if(event.target.classList.contains('delete')){
