@@ -25,7 +25,7 @@
         <ul class="border border-gray-200 rounded overflow-hidden shadow my-6">
           <li class="ligroup">
              <span>item</span>
-             <button id="remove" class="font-bold bg-transparent delete text-red-700">x</button>
+             <button id="remove" class="font-bold bg-transparent delete text-red-700">&times;</button>
           </li>
         </ul>
 
@@ -52,17 +52,10 @@
         const value = input.value;
 
         if(value == '') return
-
         const li = ul.querySelector('li').cloneNode(true);
         li.querySelector('span').textContent = value;
         ul.appendChild(li);
-
         input.value = ''
-
-        const button = form.querySelector('#remove');
-        button.onclick = function(event){
-          event.target.parentNode.remove();
-        }
 
         /*
 
@@ -82,9 +75,20 @@
 
         ul.innerHTML = ul.innerHTML + `<li class="ligroup"><span>${value}</span><button class="font-bold bg-transparent delete text-red-700">x</button></li>`;
         */
-      
+    
+      }
+
+      ul.onclick = function(event){
+        console.log(event);
+        /*
+        if(event.target.className == 'font-bold bg-transparent delete text-red-700'){
+          const li = event.target.parentElement;
+          ul.removeChild(li);
+        }
+        */
       }
  
+
 
 
 
