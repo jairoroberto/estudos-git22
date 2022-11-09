@@ -20,17 +20,16 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-
+ul{
+  background-color: #fff;}
 .ligroup{
-  @apply px-4 py-2 bg-white hover:bg-sky-100 hover:cursor-pointer flex justify-between border-gray-200
+  @apply px-4 py-2 hover:bg-sky-100 hover:cursor-pointer flex justify-between border-gray-200
 }
 
 #box li:not(:last-child){
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px dashed #e5e7eb;
 }
   
-
-
 
 #app {
   max-width: 1280px;
@@ -48,6 +47,8 @@
   display: flex;
   align-items: center;
 }
+
+
 
 
 /*

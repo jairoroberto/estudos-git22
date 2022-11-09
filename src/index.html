@@ -18,11 +18,11 @@
         <p id="pp" class="font-medium">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam, et.</p>
 
         <div class="mt-4">
-          <label for="first-name" class="block text-sm font-medium text-gray-500">First name</label>
-          <input type="text" name="first-name" id="first-name" autocomplete="given-name" class=" border mt-1 block w-full h-10 rounded-[4px] border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm outline-none p-3">
+          <label for="first-name" class="block text-sm font-medium text-gray-500">Label Name</label>
+          <input type="text" name="first-name" id="first-name" autocomplete="given-name" class=" border mt-1 block w-full h-12 rounded-[4px] border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm outline-none p-3">
         </div>
 
-        <ul class="border border-gray-200 rounded overflow-hidden shadow my-6">
+        <ul class="border border-gray-200 rounded overflow-hidden shadow-sm my-6 hidden">
           <li class="ligroup">
              <span>item</span>
              <button id="remove" class="font-bold bg-transparent delete text-red-700">&times;</button>
@@ -46,9 +46,13 @@
       const ul = document.querySelector('ul');
       const liVar = ul.querySelector('li');
 
+      document.querySelector('ul li:first-child').remove();
+
       form.onsubmit = function(event){
         event.preventDefault();
 
+        ul.classList.remove('hidden');
+        
         const input = form.querySelector('input');
         const value = input.value;
         
@@ -83,6 +87,12 @@
       ul.onclick = function(event){
         //console.log(event.currentTarget); // UL que chama o evento
         //console.log(event.target); // depende onde vc clica
+        if(event.target.classList.contains('ligroup')){
+          console.log('li');
+          //event.target.style.backgroundColor = '#e0f2fe';
+          event.target.classList.toggle('font-bold');
+          event.target.classList.toggle('bg-zinc-100');
+        }
   
         if(event.target.classList.contains('delete')){
           const li = event.target.parentElement;
