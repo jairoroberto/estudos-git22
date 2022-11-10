@@ -9,3 +9,6 @@
 - link do vídeo (Rocket Seat)
 
 [https://www.youtube.com/watch?v=fQJ2nezkUEA](https://www.youtube.com/watch?v=fQJ2nezkUEA)
+
+- Other Ref
+[MasterClass DOM](https://www.youtube.com/watch?v=UftSB4DaRU4&list=RDLVUftSB4DaRU4&index=1)
