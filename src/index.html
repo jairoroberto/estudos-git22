@@ -13,13 +13,14 @@
       Código incorporado no <span class="underline-offset-4 underline">index.html</span> 
     </div>
 
-    <form action="" class="max-w-2xl p-0 my-0 mx-auto">
+    <form action="" class="max-w-2xl p-0 my-0 mb-6 mx-auto">
       <div id="box" class="border mt-6 rounded-md p-7 bg-zinc-50 border-dashed border-slate-300">
         <p id="pp" class="font-medium">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam, et.</p>
 
         <div class="mt-4">
           <label for="first-name" class="block text-sm font-medium text-gray-500">Label Name</label>
           <input type="text" name="first-name" id="first-name" autocomplete="given-name" class=" border mt-1 block w-full h-12 rounded-[4px] border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm outline-none p-3">
+          <small class="qtde text-sm text-blue-500"></small>
         </div>
 
         <ul class="border border-gray-200 rounded overflow-hidden shadow-sm my-6 hidden">
@@ -35,7 +36,11 @@
         </button>
 
       </div>
+
+      <a href="http://www.google.com" class="mt-4 mx-auto flex max-w-sm justify-center hover:bg-slate-100  border rounded p-2">Link Google</a>
     </form>
+
+
     <script type="module" src="/main.js"></script>
 
 
@@ -50,8 +55,6 @@
 
       form.onsubmit = function(event){
         event.preventDefault();
-
-        ul.classList.remove('hidden');
         
         const input = form.querySelector('input');
         const value = input.value;
@@ -63,6 +66,8 @@
         ul.appendChild(li);
         input.value = ''
 
+        contadorLista()
+        
         /*
 
         const li = document.createElement('li');
@@ -84,13 +89,30 @@
     
       }
 
+      function contadorLista(){
+        const qtde = document.querySelector('.qtde');
+        const li = document.querySelectorAll('li');
+        qtde.textContent = li.length;
+
+        if(!li.length){
+          qtde.classList.add('hidden');
+          ul.classList.add('hidden');
+        }
+        else
+        {
+          qtde.classList.remove('hidden');
+          ul.classList.remove('hidden');
+        }
+      }
+
 
 
       ul.onclick = function(event){
+
         //console.log(event.currentTarget); // UL que chama o evento
         //console.log(event.target); // depende onde vc clica
         if(event.target.classList.contains('ligroup')){
-          console.log('li');
+          //console.log('li');
           //event.target.style.backgroundColor = '#e0f2fe';
           event.target.classList.toggle('font-bold');
           event.target.classList.toggle('bg-sky-100');
@@ -100,8 +122,14 @@
           const li = event.target.parentElement;
           event.target.parentElement.remove();
         }
+        contadorLista()
 
       }
+
+      /*
+      borders = document.querySelectorAll('.border')
+      borders.forEach(border => console.log(border))
+      */
  
 
 
