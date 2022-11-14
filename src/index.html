@@ -20,7 +20,7 @@
         <div class="mt-4">
           <label for="first-name" class="block text-sm font-medium text-gray-500">Label Name</label>
           <input type="text" name="first-name" id="first-name" autocomplete="given-name" class=" border mt-1 block w-full h-12 rounded-[4px] border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm outline-none p-3">
-          <small class="qtde text-sm text-blue-500"></small>
+          <small class="qtde text-sm text-red-500"></small>
         </div>
 
         <ul class="border border-gray-200 rounded overflow-hidden shadow-sm my-6 hidden">
@@ -92,11 +92,13 @@
       function contadorLista(){
         const qtde = document.querySelector('.qtde');
         const li = document.querySelectorAll('li');
-        qtde.textContent = li.length;
+        qtde.innerHTML = "<strong>" + li.length + "</strong>" + "<spa class='font-bold text-zinc-300'> Itens na lista</spa>";
 
+  
         if(!li.length){
           qtde.classList.add('hidden');
           ul.classList.add('hidden');
+          console.log('li.length', li.length);
         }
         else
         {
